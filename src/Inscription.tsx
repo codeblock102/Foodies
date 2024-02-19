@@ -1,5 +1,6 @@
 import React from 'react'
-import  './Inscription.css';
+import  './Inscription.scss';
+import './global.scss';
 export default function Inscription() {
   return (
     <div className='Inscription'>

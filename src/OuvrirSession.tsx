@@ -1,5 +1,6 @@
 import React from 'react'
-
+import  './Inscription.scss';
+import './global.scss'
 export default function OuvrirSession() {
   return (
    <div className='Inscription'>
