@@ -1,0 +1,26 @@
+.Inscription{
+    width: 90vw;
+    margin: 0 auto;
+    border: 1px solid grey;
+    top: 1em;
+}
+form{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"]{
+    height: 3em;
+    margin: 0 0 1em 0;
+}
+
+label{
+    margin-top: 1em;
+text-align: left;
+}
+
+button{
+    margin-top: 1em;
+}
