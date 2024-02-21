@@ -75,21 +75,21 @@ export default function Accueil() {
         <div className="post">
             
         </div>
-        <nav className=" flex navmenu w-3/4 h-12 border-solid rounded-full border-2 border-indigo-600 absolute bottom-60 left-12">
-            <ul className='flex m-auto space-x-4 w-max  '>
-                <li className='bg-slate-600 rounded-full w-10'>
+        <nav className=" navmenu">
+            <ul>
+                <li>
                     <a href="#"></a>
                 </li>
                 
-                <li className='bg-slate-600 rounded-full w-10'>
+                <li>
                     <a href="#"></a>
                 </li>
                 
-                <li className='bg-slate-600 rounded-full w-10'>
+                <li>
                     <a href="#"></a>
                 </li>
                 
-                <li className='bg-slate-600 rounded-full w-10'>
+                <li>
                     <a href="#">.</a>
                 </li>
                 
