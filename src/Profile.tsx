@@ -22,6 +22,18 @@ export default function Profile() {
                 <p>description</p>
             </div>
         </section>
+        <button className='follow'>Follow</button>
+        <div className="posts">
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+            <div className="post"></div>
+        </div>
     </div>
   )
 }
