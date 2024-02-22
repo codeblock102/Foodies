@@ -8,6 +8,7 @@ import Inscription from "./Inscription.tsx";
 import OuvrirSession from "./OuvrirSession.tsx";
 import Accueil from "./Accueil.tsx";
 import Profile from "./Profile.tsx";
+import Parametres from "./Parametres.tsx";
 
 
 // Création initiale du router comme fondation de navigation pour les pages de l'application
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/parametres",
-    //element: <ouvrirSession />
+    element: <Parametres />
   },
   {
     path: "/exploration",
