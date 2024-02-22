@@ -218,3 +218,15 @@ width: 100vw;
   margin-left: 1em;
   margin-top: 0.5em;
 }
+
+.barre-recherche{
+  border: 1px solid black;
+  border-radius: 10em;
+  height: 2em;
+  position: relative;
+  top: 5em;
+}
+
+.Exploration .posts{
+  margin-top: 5em !important;
+}
