@@ -230,3 +230,22 @@ width: 100vw;
 .Exploration .posts{
   margin-top: 5em !important;
 }
+
+.ajouterImg{
+  width: 20em;
+  height: 20em;
+  background-color: black;
+  margin: 2em auto;
+}
+
+.AjoutPhoto form{ 
+border: 1px solid black;
+}
+
+.AjoutPhoto form button{
+  width: 10em;
+  height: 2em;
+  margin: 4em auto;
+  border-radius: 1em;
+background-color: grey;
+}

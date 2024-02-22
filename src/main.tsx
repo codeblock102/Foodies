@@ -10,6 +10,7 @@ import Accueil from "./Accueil.tsx";
 import Profile from "./Profile.tsx";
 import Parametres from "./Parametres.tsx";
 import Exploration from "./Exploration.tsx";
+import AjoutPhoto from "./AjoutPhoto.tsx";
 
 
 // Création initiale du router comme fondation de navigation pour les pages de l'application
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/ajoutPhoto",
-    //element: <ouvrirSession />
+    element: <AjoutPhoto />
   }
 ]);
 
