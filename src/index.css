@@ -182,7 +182,7 @@ width: 100vw;
   border:1px solid black;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .backButton{
   width:4em;

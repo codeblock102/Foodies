@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import "./index.css";
 import Erreur from "./Erreur.tsx";
-import Inscription from "./Inscription.tsx";
-import OuvrirSession from "./OuvrirSession.tsx";
+import Inscription from "./avant-connection/Inscription.tsx";
+import OuvrirSession from "./avant-connection/OuvrirSession.tsx";
 import Accueil from "./Accueil.tsx";
 import Profile from "./Profile.tsx";
 import Parametres from "./Parametres.tsx";
@@ -17,7 +17,7 @@ import AjoutPhoto from "./AjoutPhoto.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Accueil />,
+    element: <OuvrirSession/>,
     errorElement: <Erreur />,
   },
   {
