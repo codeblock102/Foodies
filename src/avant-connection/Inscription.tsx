@@ -19,7 +19,7 @@ export default function Inscription() {
             <input type="submit" className='w-48 m-auto bouttonSubmit z-20 h-11 font-bold text-black rounded-full bold' value="Ouvrir une session" />
         </form>
 
-        <Link to="/inscription" className="mt-8 font-bold underline z-20 text-white">
+        <Link to="/" className="mt-8 font-bold underline z-20 text-white">
           Vous avez déja un compte?
         </Link>
     </div>
