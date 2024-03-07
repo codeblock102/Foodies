@@ -17,7 +17,7 @@ export default function OuvrirSession() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({formulaire})
+        body: JSON.stringify(formulaire)
       });
       const data = await reponse.text();
       console.log(data);
