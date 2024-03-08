@@ -38,17 +38,25 @@ export default function Inscription() {
     date: "",
   });
   // fonction qui cherche les charactères qui peuvent mettre à risque la bd et retourne le charactère si elle le trouve ou retourne 0 si elle ne le trouve pas
-  const validerCourriel = (valeur: string) =>
-    valeur.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  const validerCourriel = (valeur: string) => valeur.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
 
   const isInvalid = useMemo(() => {
     if (formulaire.courriel === "") {
       return false;
     }
-
+    
     return validerCourriel(formulaire.courriel) ? false : true;
   }, [formulaire.courriel]);
 
+  const verifierInput = (input:string) => input.match(/^[A-Z0-9._%+-]+$/i);
+
+  function validerInput(input:string){
+      if(input === ""){
+        return false;
+      }
+
+    return verifierInput(input) ? false : true;
+  }
   // Fonction qui enregistre les changements dans les champs d'input
   function gererChangements(e: any) {
     setFormulaire({
@@ -70,30 +78,41 @@ export default function Inscription() {
         className="flex space-between space-y-6  "
       >
         <Input
+        isRequired
           type="text"
           name="prenom"
           className="max-w-xs m-auto z-20"
           label="Prénom"
           onChange={gererChangements}
           value={formulaire.prenom}
+          isInvalid={validerInput(formulaire.prenom)}
+          errorMessage={isInvalid && "Entrez un prénom valide"}
+
         />
         <Input
+        isRequired
           type="text"
           name="nom"
           className="max-w-xs m-auto z-20"
           label="Nom"
           onChange={gererChangements}
           value={formulaire.nom}
+          isInvalid={validerInput(formulaire.nom)}
+          errorMessage={isInvalid && "Entrez un nom valide"}
         />
         <Input
+        isRequired
           type="text"
           name="nomUtil"
           className="max-w-xs m-auto z-20 "
           label="Nom_Utilisateur"
           onChange={gererChangements}
           value={formulaire.nomUtil}
+          isInvalid={validerInput(formulaire.nomUtil)}
+          errorMessage={isInvalid && "Entrez un nom d'utilisateur valide"}
         />
         <Input
+        isRequired
           type="email"
           name="courriel"
           className="max-w-xs m-auto z-20"
@@ -101,22 +120,24 @@ export default function Inscription() {
           onChange={gererChangements}
           value={formulaire.courriel}
           isInvalid={isInvalid}
-          color={isInvalid ? "danger" : "success"}
-          errorMessage={isInvalid && "Please enter a valid email"}
+          color={isInvalid ? "danger" : "default"}
+          errorMessage={isInvalid && "Entrez un email valide"}
         />
         <Input
+        isRequired
           type="password"
           name="motDePasse"
           className="max-w-xs m-auto z-20"
           label="Mot de passe"
           onChange={gererChangements}
           value={formulaire.motDePasse}
+          isInvalid={validerInput(formulaire.motDePasse)}
+          errorMessage={isInvalid && "Entrez un mot de passe valide"}
         />
         <Input
           type="date"
           name="date"
           className="max-w-xs m-auto z-20"
-          label="Mot de passe"
           onChange={gererChangements}
           value={formulaire.date}
         />
