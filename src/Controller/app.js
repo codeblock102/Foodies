@@ -26,6 +26,16 @@ app.post("/", async (req, res) => {
   }
 });
 
+app.post("/inscription", async (req, res) => {
+  const test = await req.body;
+  try{
+    console.log('Received a request:', test);
+  }catch(err){
+    console.log(err.message);
+  }
+});
+
+
 // Verifier si l'utilisateur est inscrit. Si oui, imprimer son nom dans la console, sinon lui demander de s'inscrire
 
 async function verifierInscription(req) {

@@ -18,6 +18,7 @@ export default function OuvrirSession() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formulaire)
+        
       });
       const data = await reponse.text();
       console.log(data);
