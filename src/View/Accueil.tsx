@@ -1,7 +1,8 @@
-import React from 'react'
 import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
-import './style.css';
-import './index.css';
+import Entete from './composantes/Entete';
+import MenuNav from "./composantes/MenuNav";
+import '../style.css';
+import '../index.css';
 export default function Accueil() {
     const list = [
         {
@@ -48,11 +49,8 @@ export default function Accueil() {
     
   return (
     <div className='Accueil'>
-        <div className="header">
-            <h1>Foodies</h1>
-            <div className="settings"></div>
-        </div>
-        <div className="w-full flex flex-col justify-center items-center	">
+        <Entete/>        
+      <div className="w-full flex flex-col justify-center items-center	">
       {list.map((item, index) => (
         <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")} className='w-96 h-96'>
           <CardBody className="overflow-visible p-0">
@@ -75,27 +73,7 @@ export default function Accueil() {
         <div className="post">
             
         </div>
-        <nav className=" navmenu">
-            <ul>
-                <li>
-                    <a href="#"></a>
-                </li>
-                
-                <li>
-                    <a href="#"></a>
-                </li>
-                
-                <li>
-                    <a href="#"></a>
-                </li>
-                
-                <li>
-                    <a href="#">.</a>
-                </li>
-                
-            </ul>
-        </nav>
-       
+        <MenuNav/>
     </div>
   )
 }

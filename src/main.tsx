@@ -6,7 +6,7 @@ import "./index.css";
 import Erreur from "./Erreur.tsx";
 import Inscription from "./avant-connection/Inscription.tsx";
 import OuvrirSession from "./avant-connection/OuvrirSession.tsx";
-import Accueil from "./Accueil.tsx";
+import Accueil from "./View/Accueil.tsx";
 import Profile from "./Profile.tsx";
 import Parametres from "./Parametres.tsx";
 import Exploration from "./Exploration.tsx";
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/ajoutPhoto",
     element: <AjoutPhoto />
+  },
+  {
+    path: "/accueil",
+    element: <Accueil />  
   }
 ]);
 

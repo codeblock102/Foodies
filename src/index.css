@@ -82,31 +82,7 @@ button:focus-visible {
   background-color: grey;
   border-radius: 50%;
 }
-.navmenu{
-  position: sticky;
-  bottom: 10em;
-  margin: 0 auto;
-  width: 80%;
-  height: 3em;
-  border: 1px solid black;
-  border-radius: 20em;
-}
 
-.navmenu ul{
-  padding: 1em;
-  height: 100%;
-  width: 100%;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navmenu ul li{
-  width: 2.5em;
-  height: 2.5em;
-  background-color: grey;
-  border-radius: 50%;
-}
 
 .profileInfo{
   width: 100vw;
