@@ -66,9 +66,6 @@ export default function Inscription() {
   }
 
 
-
-
-  
   return (
     <div
       className="Inscription h-screen flex  items-center flex-col  m-auto bg-cover z-0 text-white"

@@ -67,7 +67,9 @@ button:focus-visible {
   }
 } */
 
-
+.Accueil{
+  background-color: #F1F1F1;
+}
 .settings{
   width: 2em;
   height: 2em;
