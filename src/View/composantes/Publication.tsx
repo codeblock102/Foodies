@@ -6,7 +6,7 @@ import description_menuPubli from "../../assets/description_menuPubli.svg";
 import sauvegarder_menuPubli from "../../assets/sauvegarder_menuPubli.svg";
 export default function Publication() {
   return (
-    <div className="Publication w-full h-96 mb-10">
+    <div className="Publication w-full h-96 mt-10">
       <div className="entete_publi w-full h-14 bg-white pt-2">
         <div className="img-util h-10 w-10 bg-gray-200 rounded-full ml-1.5 "></div>
       </div>
