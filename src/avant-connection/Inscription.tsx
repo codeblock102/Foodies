@@ -27,8 +27,8 @@ export default function Inscription() {
     } catch (error) {
       console.error("Error submitting form:", error);
     }
-    console.log(formulaire);
   }
+  // Fonction qui traque ce qui est écrit dans les champs de saisie
   const [formulaire, setFormulaire] = useState({
     prenom: "",
     nom: "",
@@ -64,6 +64,11 @@ export default function Inscription() {
       [e.target.name]: e.target.value,
     });
   }
+
+
+
+
+  
   return (
     <div
       className="Inscription h-screen flex  items-center flex-col  m-auto bg-cover z-0 text-white"

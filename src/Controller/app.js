@@ -1,7 +1,7 @@
 const express = require("express");
 //const bodyParser = require("body-parser");
 const cors = require("cors");
-// const bcrypt = require("bcrypt");
+
 const pool = require("./bd");
 const app = express();
 const port = 3000;
@@ -27,9 +27,11 @@ app.post("/", async (req, res) => {
 });
 
 app.post("/inscription", async (req, res) => {
-  const test = await req.body;
   try{
-    console.log('Received a request:', test);
+    const infoUtil = await req.body;
+    // console.log('Received a request:', infoUtil);
+    const test = await pool.creerUtil(infoUtil);
+    console.log(test);
   }catch(err){
     console.log(err.message);
   }
@@ -48,6 +50,8 @@ async function verifierInscription(req) {
    return 0;
   }
 }
+
+// vérifier si 'lutilisateur 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
