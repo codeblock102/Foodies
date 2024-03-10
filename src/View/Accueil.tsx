@@ -52,7 +52,7 @@ export default function Accueil() {
         <Entete/>        
       <div className="w-full flex flex-col justify-center items-center	">
       {list.map((item, index) => (
-      <Publication/>
+      <Publication key={index}/>
       ))}
     </div>
         <MenuNav/>
