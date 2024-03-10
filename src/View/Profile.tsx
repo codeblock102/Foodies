@@ -1,14 +1,12 @@
-import React from 'react'
-import './style.css';
-import './index.css';
-
+import Entete from './composantes/Entete';
+import MenuNav from "./composantes/MenuNav";
+import Publimini from './composantes/Publimini';
+import '../style.css';
+import '../index.css';
 export default function Profile() {
   return (
     <div className="Profile">
-         <div className="header">
-            <h1>Foodies</h1>
-            <div className="settings"></div>
-        </div>
+        <Entete/>  
         <section className='profileInfo'>
             <div className="imgMain"></div>
             <div className="profileImg"></div>
@@ -23,17 +21,19 @@ export default function Profile() {
             </div>
         </section>
         <button className='follow'>Follow</button>
-        <div className="posts">
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
-            <div className="post"></div>
+        <div className="posts flex w-screen mx-auto ml-0.5">
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
+            <Publimini/>
         </div>
+        <MenuNav/>
     </div>
   )
 }

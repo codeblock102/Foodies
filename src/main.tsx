@@ -7,7 +7,7 @@ import Erreur from "./Erreur.tsx";
 import Inscription from "./avant-connection/Inscription.tsx";
 import OuvrirSession from "./avant-connection/OuvrirSession.tsx";
 import Accueil from "./View/Accueil.tsx";
-import Profile from "./Profile.tsx";
+import Profile from "./View/Profile.tsx";
 import Parametres from "./Parametres.tsx";
 import Exploration from "./Exploration.tsx";
 import AjoutPhoto from "./AjoutPhoto.tsx";

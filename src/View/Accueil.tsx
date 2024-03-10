@@ -1,4 +1,3 @@
-import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 import Entete from './composantes/Entete';
 import MenuNav from "./composantes/MenuNav";
 import Publication from "./composantes/Publication";
@@ -56,7 +55,6 @@ export default function Accueil() {
       <Publication/>
       ))}
     </div>
-        
         <MenuNav/>
     </div>
   )
