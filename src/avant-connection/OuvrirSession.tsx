@@ -5,9 +5,11 @@ import { Link, Form, useNavigate,Navigate } from "react-router-dom";
 import img from "../assets/connectionImg-mobile.jpeg";
 import "../fonts.scss";
 import { useState, useEffect } from "react";
+import Cookies from 'js-cookie';
+
 
 export default function OuvrirSession() {
-  const [util, setUtil] = useState();
+  const [util, setUtil] = useState<any>();
   const naviguer = useNavigate();
   let reponseJson:any;
 
@@ -33,6 +35,7 @@ export default function OuvrirSession() {
 
   useEffect(() => {
     if(util){
+      Cookies.set('util-id', `${util.id}`, { expires: 1 })
       naviguer("/accueil");
     }else{
       console.log("pas cool")

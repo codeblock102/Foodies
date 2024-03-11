@@ -10,12 +10,17 @@ import OuvrirSession from "./avant-connection/OuvrirSession.tsx";
 import Accueil from "./View/Accueil.tsx";
 import Profile from "./View/Profile.tsx";
 import Parametres from "./Parametres.tsx";
-import Exploration from "./Exploration.tsx";
+import Exploration from "./View/Exploration.tsx";
 import AjoutPhoto from "./AjoutPhoto.tsx";
+import Cookies from 'js-cookie';
 
-// // Vérifie si l'utilisateur est logger. Elle contient les infos de l'utilisateur. Si elle est vide, alors l'utilisateur n'est pas logger
+
+// // Vérifie si l'utilisateur est logger en regardant les cookies du navigateur. Elle contient l'id de l'utilisateur. Si elle est vide, alors l'utilisateur n'est pas logger
 // Vériifier avec cookies????
-let utilLogger:object;
+function verifierUtil(){
+   return Cookies.get('util-id');
+}
+let utilVerifier;
 
 // Création initiale du router comme fondation de navigation pour les pages de l'application
 const router = createBrowserRouter([
@@ -36,16 +41,19 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <Profile />,
     loader: async () =>{
-      if(!utilLogger){
+      utilVerifier = verifierUtil();
+      if(!utilVerifier){
         return redirect("/");
       }
+      return null;
     }
   },
   {
     path: "/parametres",
     element: <Parametres />,
     loader: async () =>{
-      if(!utilLogger){
+      utilVerifier = verifierUtil();
+      if(!utilVerifier){
         return redirect("/");
       }
     }
@@ -54,18 +62,22 @@ const router = createBrowserRouter([
     path: "/exploration",
     element: <Exploration />,
     loader: async () =>{
-      if(!utilLogger){
+      utilVerifier = verifierUtil();
+      if(!utilVerifier){
         return redirect("/");
       }
+      return null;
     }
   },
   {
     path: "/ajoutPhoto",
     element: <AjoutPhoto />,
     loader: async () =>{
-      if(!utilLogger){
+      utilVerifier = verifierUtil();
+      if(!utilVerifier){
         return redirect("/");
       }
+      return null;
     }
   },
   {
