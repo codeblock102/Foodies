@@ -1,6 +1,7 @@
 const express = require("express");
 //const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const pool = require("./bd");
 const app = express();
@@ -9,18 +10,28 @@ const port = 3000;
 // Middleware for parsing JSON bodies
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
+let util;
 app.post("/", async (req, res) => {
-  //     const testing = await req.body;
-  //     //console.log('Received a request:', req.body);
-  //    // console.log(testing);
-  //   const responseData = { message: "Success" };
-  //   // Sending the JSON response
-  //
-
+  
   try {
-   const util = await verifierInscription(req);
+    util = await verifierInscription(req);
+   res.cookie("utilId", util.id,{expire : 24 * 60 * 60 * 1000 } );
     res.json({ response: util.nom_util , id: util.id});
+     
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+// Requête qui redonne au client la page profile d'un utilisateur
+app.get("/profile/:nom_util", async (req, res) => {
+  
+  try {
+   const util = await pool.chercherUtilisateur(req.params.nom_util);
+    res.json(util);
+     
   } catch (err) {
     console.log(err.message);
   }

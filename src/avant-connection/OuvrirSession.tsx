@@ -4,12 +4,14 @@ import { Input } from "@nextui-org/react";
 import { Link, Form, useNavigate,Navigate } from "react-router-dom";
 import img from "../assets/connectionImg-mobile.jpeg";
 import "../fonts.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
+import {ContextUtil} from '../main';
 import Cookies from 'js-cookie';
 
 
 export default function OuvrirSession() {
-  const [util, setUtil] = useState<any>();
+  //const [util, setUtil] = useState<any>();
+  const {util, setUtil} = useContext(ContextUtil);
   const naviguer = useNavigate();
   let reponseJson:any;
 
@@ -26,7 +28,7 @@ export default function OuvrirSession() {
       });
        reponseJson = await reponse.json();
        setUtil(await reponseJson);
-      console.log(reponseJson);
+      
       return reponseJson;
     } catch (error) {
       console.error("Erreur de soumission de formulaire:", error);
@@ -35,10 +37,10 @@ export default function OuvrirSession() {
 
   useEffect(() => {
     if(util){
-      Cookies.set('util-id', `${util.id}`, { expires: 1 })
+      console.log(util);
       naviguer("/accueil");
     }else{
-      console.log("pas cool")
+      console.log("pas cool");
     }
    
 }, [util]);

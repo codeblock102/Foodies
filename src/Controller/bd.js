@@ -67,4 +67,31 @@ async function creerUtil(infoUtil){
 }
 
 
-module.exports = { chercherUtil,creerUtil };
+// Fonction qui cherche un utilisateur pour l'afficher dans la page de profile
+async function chercherUtilisateur(nom_util) {
+  try {
+    // Creer la connexion a la base de donnée
+    const client = await pool.connect();
+    // Mettre la valeur du input dans un array qui sera utilisé dans la requête
+    const valeursInputUtil = [nom_util];
+    const query = "SELECT * FROM utilisateur WHERE nom_util = $1";
+
+    // Encrypter les valeurs pour être capable de les trouver dans la base de donnée
+    // valeursInputUtil.forEach(async (valeur) =>{
+    //   const valeurEncrypter = await bcrypt.hash(valeur,10);
+    //   console.log(await valeurEncrypter);
+    //   return valeurEncrypter;
+    // }); 
+
+    // Faire la requête pour chercher un utilisateur
+    const resultat = await client.query(query, valeursInputUtil);
+
+    client.release();
+    return resultat.rows[0];
+  } catch (err) {
+    console.log("erreur:", err);
+  }
+}
+
+
+module.exports = { chercherUtil,creerUtil,chercherUtilisateur };
