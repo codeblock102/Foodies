@@ -30,8 +30,9 @@ app.get("/profile/:nom_util", async (req, res) => {
   
   try {
    const util = await pool.chercherUtilisateur(req.params.nom_util);
+   
     res.json(util);
-     
+    // console.log(util);     
   } catch (err) {
     console.log(err.message);
   }

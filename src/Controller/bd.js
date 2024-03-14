@@ -1,5 +1,6 @@
 /** CODE POUR MANIPULER LA BASE DE DONNÉE DIRECTEMENT */
  const bcrypt = require("bcrypt");
+ const fs = require('fs');
 // Initialiser la base de donnée
 const { Pool } = require("pg");
 //Créer le pool de connexion
@@ -76,22 +77,46 @@ async function chercherUtilisateur(nom_util) {
     const valeursInputUtil = [nom_util];
     const query = "SELECT * FROM utilisateur WHERE nom_util = $1";
 
-    // Encrypter les valeurs pour être capable de les trouver dans la base de donnée
-    // valeursInputUtil.forEach(async (valeur) =>{
-    //   const valeurEncrypter = await bcrypt.hash(valeur,10);
-    //   console.log(await valeurEncrypter);
-    //   return valeurEncrypter;
-    // }); 
-
     // Faire la requête pour chercher un utilisateur
     const resultat = await client.query(query, valeursInputUtil);
-
+    // Garder le id de l'utilisateur pour etre capable de chercher ses publications
+    const util = resultat.rows[0].id;
+    
+    // Mettre la valeur du input dans un array qui sera utilisé dans la requête
+    const valeursInputUtil2 = [util];
+    const query2 = "SELECT * FROM publication WHERE util_id = $1";
+    // Faire la requête pour chercher les publications de l'utilisateur
+    const resultat2 = await client.query(query2, valeursInputUtil2);
+    const publications = resultat2.rows;
+    ;
+    // Transformer les images de la bd en fichiers
+    let x = publications.forEach(publication => {
+      const imageData = publication.image_data;
+      const base64Image = Buffer.from(imageData, 'binary').toString('base64');
+      publication.image_data = base64Image; // Update the publication object wi
+    });
+    console.log(publications)
     client.release();
-    return resultat.rows[0];
+    return publications;
   } catch (err) {
     console.log("erreur:", err);
   }
 }
 
+// Fonction qui cherche les publications pour l'afficher dans la page de profile
+async function chercherPublications(util_id){
+  try{
+   // Creer la connexion a la base de donnée
+   const client = await pool.connect();
+   // Mettre la valeur du input dans un array qui sera utilisé dans la requête
+   const valeurInputUtil = [util_id];
+   const query2 = "SELECT util_id FROM publication WHERE util_id = $1";
+   // Faire la requête pour chercher l'utilisateur
+   const resultat = await client.query(query2, valeurInputUtil);
+   return resultat.rows[0];
+  } catch (err) {
+    console.log("erreur:", err);
+  }
+}
 
-module.exports = { chercherUtil,creerUtil,chercherUtilisateur };
+module.exports = { chercherUtil,creerUtil,chercherUtilisateur, chercherPublications };

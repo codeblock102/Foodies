@@ -9,7 +9,7 @@ import Inscription from "./avant-connection/Inscription.tsx";
 import OuvrirSession from "./avant-connection/OuvrirSession.tsx";
 import Accueil from "./View/Accueil.tsx";
 import Profile from "./View/Profile.tsx";
-import Parametres from "./Parametres.tsx";
+import Parametres from "./View/Parametres.tsx";
 import Exploration from "./View/Exploration.tsx";
 import AjoutPhoto from "./AjoutPhoto.tsx";
 import Cookies from 'js-cookie';
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile cool = {'1'} />,
+    element: <Profile />,
     loader: async () =>{
       utilVerifier = verifierUtil();
       if(!utilVerifier){
@@ -61,23 +61,23 @@ const router = createBrowserRouter([
   {
     path: "/parametres",
     element: <Parametres />,
-    loader: async () =>{
-      utilVerifier = verifierUtil();
-      if(!utilVerifier){
-        return redirect("/");
-      }
-    }
+    // loader: async () =>{
+    //   utilVerifier = verifierUtil();
+    //   if(!utilVerifier){
+    //     return redirect("/");
+    //   }
+    // }
   },
   {
     path: "/exploration",
     element: <Exploration />,
-    loader: async () =>{
-      utilVerifier = verifierUtil();
-      if(!utilVerifier){
-        return redirect("/");
-      }
-      return null;
-    }
+    // loader: async () =>{
+    //   utilVerifier = verifierUtil();
+    //   if(!utilVerifier){
+    //     return redirect("/");
+    //   }
+    //   return null;
+    // }
   },
   {
     path: "/ajoutPhoto",
