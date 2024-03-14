@@ -11,7 +11,7 @@ import Accueil from "./View/Accueil.tsx";
 import Profile from "./View/Profile.tsx";
 import Parametres from "./View/Parametres.tsx";
 import Exploration from "./View/Exploration.tsx";
-import AjoutPhoto from "./AjoutPhoto.tsx";
+import AjoutPhoto from "./View/AjoutPhoto.tsx";
 import Cookies from 'js-cookie';
 
 export const ContextUtil = createContext<any>(undefined);
@@ -82,13 +82,13 @@ const router = createBrowserRouter([
   {
     path: "/ajoutPhoto",
     element: <AjoutPhoto />,
-    loader: async () =>{
-      utilVerifier = verifierUtil();
-      if(!utilVerifier){
-        return redirect("/");
-      }
-      return null;
-    }
+    // loader: async () =>{
+    //   utilVerifier = verifierUtil();
+    //   if(!utilVerifier){
+    //     return redirect("/");
+    //   }
+    //   return null;
+    // }
   },
   {
     path: "/accueil",

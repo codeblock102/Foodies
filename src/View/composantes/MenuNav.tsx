@@ -17,9 +17,9 @@ export default function MenuNav() {
           <img src={loupe_menu} alt="" className="h-full w-full" />
         </Link>
 
-        <li className="boutonAjout h-20 w-20 bg-orange-400 rounded-full flex justify-center items-center">
+        <Link className="boutonAjout h-20 w-20 bg-orange-400 rounded-full flex justify-center items-center" to='/ajoutPhoto'>
         <img src={boutonPlusMenu} alt="" className="h-14 w-14 align-middle " />
-        </li>
+        </Link>
 
         <Link to="/accueil" className="h-10 w-10">
           <img src={clocheMenu} alt="" className="h-full w-full" />

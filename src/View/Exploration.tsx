@@ -1,10 +1,8 @@
 import Publimini from "./composantes/Publimini";
 import Entete from "./composantes/Entete";
 import MenuNav from "./composantes/MenuNav";
-import {Input} from "@nextui-org/react";
 import {Form} from "react-router-dom";
-
-//import "../style.css";
+import "../style.css";
 import "../index.css";
 
 export default function Exploration() {

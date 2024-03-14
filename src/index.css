@@ -67,26 +67,25 @@ button:focus-visible {
   }
 } */
 
-.Accueil{
-  background-color: #F1F1F1;
+.Accueil {
+  background-color: #f1f1f1;
 }
 
-
-.profileInfo{
+.profileInfo {
   width: 100vw;
-  height: auto;;
-  display:flex;
+  height: auto;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.imgMain{
+.imgMain {
   width: 100%;
   height: 9em;
   background-color: grey;
 }
 
-.profileImg{
+.profileImg {
   width: 10em;
   height: 10em;
   position: relative;
@@ -95,22 +94,22 @@ button:focus-visible {
   background-color: black;
 }
 
-.textFollowing{
-  width:95%;
+.textFollowing {
+  width: 95%;
   display: flex;
   justify-content: space-between;
   position: relative;
   bottom: 9em;
 }
 
-.infoPerso{
-  width:50%;
+.infoPerso {
+  width: 50%;
   text-align: center;
   position: relative;
   bottom: 7em;
 }
 
-.follow{
+.follow {
   width: 10em;
   position: relative;
   left: 8em;
@@ -120,21 +119,22 @@ button:focus-visible {
   border-radius: 10em;
 }
 
-.posts{
-  height:20em;
+.posts {
+  height: 20em;
   flex-wrap: wrap;
 }
-.publimini{
- 
+.publimini {
   width: 7.5em;
   height: 7.5em;
 }
 
-.Parametres,.Exploration{
-  background-color: #F5F5F5;
+.Parametres,
+.Exploration,
+.AjoutPhoto {
+  background-color: #f5f5f5;
 }
-.EnteteParam,{
-  background-color: #FFFFFF;
+.EnteteParam {
+  background-color: #ffffff;
 }
 
 /* .navBar{
@@ -154,15 +154,15 @@ button:focus-visible {
   margin-left: 0.5em;
 } */
 
-.options{
+.options {
   margin-top: 0.5em;
   min-height: 30em;
 }
-.OptionParam{
-  background-color: #FFFFFF;
+.OptionParam {
+  background-color: #ffffff;
 }
 
-.icon{
+.icon {
   margin-left: 1em;
   margin-top: 0.3em;
   width: 2em;
@@ -170,35 +170,27 @@ button:focus-visible {
   background-color: black;
   border-radius: 50%;
 }
-.nom-option{
+.nom-option {
   margin-left: 1em;
   margin-top: 0.5em;
 }
 
-.barre-recherche{
-  border: 1px solid #9FBB73;
+.barre-recherche {
+  border: 1px solid #9fbb73;
   border-radius: 10em;
   position: relative;
   top: 2em;
 }
 
 
-
-.ajouterImg{
-  width: 20em;
-  height: 20em;
-  background-color: black;
-  margin: 2em auto;
+.AjoutPhoto form input[type="text"]{
+  border-bottom: 2px solid grey;
+  background-color: transparent;
+  margin: 1em 0 1em 0;
 }
-
-.AjoutPhoto form{ 
-border: 1px solid black;
+.conteneur-img {
+  border-color: #f1eb90;
 }
-
-.AjoutPhoto form button{
-  width: 10em;
-  height: 2em;
-  margin: 4em auto;
-  border-radius: 1em;
-background-color: grey;
+.Bouton {
+  background-color: #9fbb73;
 }
