@@ -130,10 +130,10 @@ button:focus-visible {
   height: 7.5em;
 }
 
-.Parametres{
+.Parametres,.Exploration{
   background-color: #F5F5F5;
 }
-.EnteteParam{
+.EnteteParam,{
   background-color: #FFFFFF;
 }
 
@@ -176,16 +176,13 @@ button:focus-visible {
 }
 
 .barre-recherche{
-  border: 1px solid black;
+  border: 1px solid #9FBB73;
   border-radius: 10em;
-  height: 2em;
   position: relative;
-  top: 5em;
+  top: 2em;
 }
 
-.Exploration .posts{
-  margin-top: 5em !important;
-}
+
 
 .ajouterImg{
   width: 20em;
