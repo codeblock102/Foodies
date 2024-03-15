@@ -13,7 +13,7 @@ export default function Inscription() {
 
     try {
       // Requête au serveur
-      const reponse = await fetch("http://localhost:3000/inscription", {
+      const reponse = await fetch("http://localhost:3000/api/auth/inscription", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,9 +32,9 @@ export default function Inscription() {
   const [formulaire, setFormulaire] = useState({
     prenom: "",
     nom: "",
-    nomUtil: "",
+    nom_util: "",
     courriel: "",
-    motDePasse: "",
+    mdp: "",
     date: "",
   });
   // fonction qui cherche les charactères qui peuvent mettre à risque la bd et retourne le charactère si elle le trouve ou retourne 0 si elle ne le trouve pas
@@ -105,12 +105,12 @@ export default function Inscription() {
         <Input
         isRequired
           type="text"
-          name="nomUtil"
+          name="nom_util"
           className="max-w-xs m-auto z-20 "
           label="Nom_Utilisateur"
           onChange={gererChangements}
-          value={formulaire.nomUtil}
-          isInvalid={validerInput(formulaire.nomUtil)}
+          value={formulaire.nom_util}
+          isInvalid={validerInput(formulaire.nom_util)}
           errorMessage={isInvalid && "Entrez un nom d'utilisateur valide"}
         />
         <Input
@@ -128,12 +128,12 @@ export default function Inscription() {
         <Input
         isRequired
           type="password"
-          name="motDePasse"
+          name="mdp"
           className="max-w-xs m-auto z-20"
           label="Mot de passe"
           onChange={gererChangements}
-          value={formulaire.motDePasse}
-          isInvalid={validerInput(formulaire.motDePasse)}
+          value={formulaire.mdp}
+          isInvalid={validerInput(formulaire.mdp)}
           errorMessage={isInvalid && "Entrez un mot de passe valide"}
         />
         <Input

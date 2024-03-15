@@ -21,8 +21,10 @@ export default function OuvrirSession() {
     try {
       const reponse = await fetch("http://localhost:3000/", {
         method: "POST",
+        credentials: 'include',
         headers: {
           "Content-Type": "application/json",
+          
         },
         body: JSON.stringify(formulaire),
       });
@@ -39,6 +41,7 @@ export default function OuvrirSession() {
     if(util){
       console.log(util);
       naviguer("/accueil");
+      localStorage.setItem("utilisateur",JSON.stringify(util));
     }else{
       console.log("pas cool");
     }
