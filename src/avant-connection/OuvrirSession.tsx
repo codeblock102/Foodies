@@ -10,7 +10,7 @@ import Cookies from 'js-cookie';
 
 
 export default function OuvrirSession() {
-  //const [util, setUtil] = useState<any>();
+
   const {util, setUtil} = useContext(ContextUtil);
   const naviguer = useNavigate();
   let reponseJson:any;
@@ -19,16 +19,16 @@ export default function OuvrirSession() {
     e.preventDefault();
 
     try {
-      const reponse = await fetch("http://localhost:3000/", {
+      const reponse = await fetch("http://localhost:3000/api/auth/ouvrirSession", {
         method: "POST",
         credentials: 'include',
         headers: {
           "Content-Type": "application/json",
-          
         },
         body: JSON.stringify(formulaire),
       });
        reponseJson = await reponse.json();
+       console.log(reponseJson);
        setUtil(await reponseJson);
       
       return reponseJson;
@@ -38,8 +38,8 @@ export default function OuvrirSession() {
   }
 
   useEffect(() => {
-    if(util){
-      console.log(util);
+    if(util && Object.keys(util).length > 0) {
+      console.log(typeof util);
       naviguer("/accueil");
       localStorage.setItem("utilisateur",JSON.stringify(util));
     }else{
@@ -50,8 +50,8 @@ export default function OuvrirSession() {
 
   
   const [formulaire, setFormulaire] = useState({
-    nomUtil: "",
-    motDePasse: "",
+    nom_util: "",
+    mdp: "",
   });
 
   function gererChangements(e: any) {
@@ -74,19 +74,19 @@ export default function OuvrirSession() {
       >
         <Input
           type="text"
-          name="nomUtil"
+          name="nom_util"
           className="max-w-xs m-auto z-20"
           label="Username"
           onChange={gererChangements}
-          value={formulaire.nomUtil}
+          value={formulaire.nom_util}
         />
         <Input
           type="password"
-          name="motDePasse"
+          name="mdp"
           className="max-w-xs m-auto z-20"
           label="Mot de passe"
           onChange={gererChangements}
-          value={formulaire.motDePasse}
+          value={formulaire.mdp}
         />
         <input
           type="submit"
