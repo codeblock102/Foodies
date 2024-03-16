@@ -39,7 +39,6 @@ export default function OuvrirSession() {
 
   useEffect(() => {
     if(util && Object.keys(util).length > 0) {
-      console.log(typeof util);
       naviguer("/accueil");
       localStorage.setItem("utilisateur",JSON.stringify(util));
     }else{

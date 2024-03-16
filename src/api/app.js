@@ -9,13 +9,12 @@ const app = express();
 const port = 3000;
 
 const routesAuth = require('./routes/auth');
-const routesUtil = require('./routes/utilisateurs');
 const routesPubli = require('./routes/publications');
+const routesUtil = require('./routes/utilisateurs');
 const routesLikes = require('./routes/likes');
 const routesCommentaires = require('./routes/commentaires');
 
  //app.use("api/utilisateurs", routesUtil);
-// app.use("api/publications", routesPubli);
 // app.use("api/likes", routesLikes);
 // app.use("api/commentaires", routesCommentaires);
 
@@ -24,15 +23,21 @@ app.use((req,res,next)=>{
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 })
+
+app.use(cookieParser());
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: "http://localhost:5173",
+  credentials: true,
 }));
+
+
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.use(cookieParser());
+
 
  app.use("/api/auth", routesAuth);
+ app.use("/api/publications", routesPubli);
 
 
 

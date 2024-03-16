@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, redirect, RouterProvider, useParams } from "react-router-dom";
 import { useState, createContext, useEffect } from "react";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NextUIProvider } from "@nextui-org/react";
 import "./index.css";
 import Erreur from "./Erreur.tsx";
@@ -24,22 +25,23 @@ let utilVerifier;
 
 export default function Main() {
 
+  const queryClient = new QueryClient();
 
   // Prendre le localstorage l'utilisateur 
   const utilisateurString: string | null = localStorage.getItem('utilisateur');
 
   const [util, setUtil] = useState(utilisateurString);
-  
+
   useEffect(() => {
     // Vérifier si la valeur est null
-  if (utilisateurString !== null) {
-    setUtil(utilisateurString);
-  } else {
-    setUtil(null);
-  }
+    if (utilisateurString !== null) {
+      setUtil(utilisateurString);
+    } else {
+      setUtil(null);
+    }
 
   }, [])
-  
+
 
   // Création initiale du router comme fondation de navigation pour les pages de l'application
   const router = createBrowserRouter([
@@ -117,9 +119,11 @@ export default function Main() {
   return (
     <NextUIProvider>
       <React.StrictMode>
-        <ContextUtil.Provider value={{ util, setUtil }}>
-          <RouterProvider router={router} />
-        </ContextUtil.Provider>
+        <QueryClientProvider client={queryClient}>
+          <ContextUtil.Provider value={{ util, setUtil }}>
+            <RouterProvider router={router} />
+          </ContextUtil.Provider>
+        </QueryClientProvider>
       </React.StrictMode>
     </NextUIProvider>
 
