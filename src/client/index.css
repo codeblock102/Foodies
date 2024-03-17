@@ -130,7 +130,7 @@ button:focus-visible {
 
 .Parametres,
 .Exploration,
-.AjoutPhoto {
+.AjoutPubli {
   background-color: #f5f5f5;
 }
 .EnteteParam {
@@ -183,7 +183,7 @@ button:focus-visible {
 }
 
 
-.AjoutPhoto form input[type="text"]{
+.AjoutPubli form input[type="text"]{
   border-bottom: 2px solid grey;
   background-color: transparent;
   margin: 1em 0 1em 0;
@@ -193,4 +193,30 @@ button:focus-visible {
 }
 .Bouton {
   background-color: #9fbb73;
+}
+
+.Commentaire{
+  display: flex;
+}
+
+.info-util{
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 30%;
+  height: 3%;
+  margin-top: 0.5em;
+
+}
+
+.img-util{
+  
+  width: 2em;
+  height: 2em;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.description-commentaire{
+  margin-top: 0.5em;
+
 }

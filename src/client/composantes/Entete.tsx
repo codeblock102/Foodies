@@ -1,5 +1,5 @@
-import "../../style.css";
-import "../../index.css";
+import "../style.css";
+import "../index.css";
 import parametres_menu from "../../assets/parametres_menu.svg";
 
 export default function Entete() {

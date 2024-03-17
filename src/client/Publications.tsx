@@ -1,11 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
 import Publication from "./composantes/Publication";
-import { chercherData } from './fonctions';
-import '../style.css';
-import '../index.css';
+import './style.css';
+import './index.css';
 export default function Publications() {
 
-
+     const chercherData = async (route:string) => { 
+        const reponse = await fetch(`http://localhost:3000${route}`,{
+            method: 'GET',
+            credentials: 'include'
+        });
+        const reponseJson = await reponse.json();
+        return reponseJson;
+    }
+    
     const { isPending, error, data } = useQuery({
         queryKey: ['publications'],
         queryFn: () => chercherData('/api/publications/accueil'),

@@ -1,5 +1,5 @@
-import "../../style.css";
-import "../../index.css";
+import "../style.css";
+import "../index.css";
 import img_publi from "../../assets/connectionImg.jpg";
 
 export default function Publimini() {

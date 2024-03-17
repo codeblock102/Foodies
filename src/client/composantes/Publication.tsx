@@ -4,6 +4,7 @@ import msgs_menuPubli from "../../assets/msgs_menuPubli.svg";
 import partager_menuPubli from "../../assets/partager_menuPubli.svg";
 import description_menuPubli from "../../assets/description_menuPubli.svg";
 import sauvegarder_menuPubli from "../../assets/sauvegarder_menuPubli.svg";
+import Commentaires from "../Commentaires";
 export default function Publication() {
   return (
     <div className="Publication w-full h-96 mt-10">
@@ -18,6 +19,7 @@ export default function Publication() {
         <img className="size-12" src={description_menuPubli} alt="" />
         <img className="size-12" src={sauvegarder_menuPubli} alt="" />
       </div>
+      <Commentaires/>
     </div>
   );
 }

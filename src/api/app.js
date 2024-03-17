@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const multer  = require('multer');
 
 const app = express();
 const port = 3000;
@@ -23,12 +24,37 @@ app.use((req,res,next)=>{
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 })
-
-app.use(cookieParser());
 app.use(cors({
   origin: "http://localhost:5173",
   credentials: true,
 }));
+
+app.use(cookieParser());
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../assets/publications_img');
+  },
+  filename: function (req, fichier, cb) {
+    
+    cb(null, Date.now() + fichier.originalname)
+  }
+})
+
+const telecharger = multer({ storage: storage })
+app.post("/api/telecharger",telecharger.single("file"),(req,res)=>{
+  const fichier = req.file;
+  console.log(fichier)
+res.status(200).send(fichier.filename);
+})
+
+// app.post("/api/telecharger", telecharger.single("file"),(req,res) => {
+//   const fichier = req.file;
+
+//   // Access text data sent in the form
+//   const textData = req.body.textData;
+//   res.status(200).json(fichier.filename);
+// })
+
 
 
 app.use(bodyParser.json());
@@ -39,63 +65,6 @@ app.use(express.json());
  app.use("/api/auth", routesAuth);
  app.use("/api/publications", routesPubli);
 
-
-
-
-
-// Middleware for analyser les corps JSON des requetes
-
-
-//let util;
-// app.post("/", async (req, res) => {
-  
-//   try {
-//     util = await verifierInscription(req);
-//    res.cookie("utilId", util.id,{expire : 24 * 60 * 60 * 1000 } );
-//     res.json({ response: util.nom_util , id: util.id});
-     
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// });
-
-// // Requête qui redonne au client la page profile d'un utilisateur
-// app.get("/profile/:nom_util", async (req, res) => {
-  
-//   try {
-//    const util = await pool.chercherUtilisateur(req.params.nom_util);
-   
-//     res.json(util);
-//     // console.log(util);     
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// });
-
-// app.post("/inscription", async (req, res) => {
-//   try{
-//     const infoUtil = await req.body;
-//     // console.log('Received a request:', infoUtil);
-//     const test = await pool.creerUtil(infoUtil);
-//     console.log(test);
-//   }catch(err){
-//     console.log(err.message);
-//   }
-// });
-
-
-// // Verifier si l'utilisateur est inscrit. Si oui, imprimer son nom dans la console, sinon lui demander de s'inscrire
-
-// async function verifierInscription(req) {
-//   const util = await pool.chercherUtil(req.body.nomUtil, req.body.motDePasse);
-//   if (util) {
-//    console.log(util);
-//    return util;
-//   } else {
-//     console.log("Cet utilisateur n'a pas été trouvé");
-//    return 0;
-//   }
-// }
 
 // vérifier si 'lutilisateur 
 app.listen(port, () => {

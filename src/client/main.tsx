@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, redirect, RouterProvider, useParams } from "react-router-dom";
+import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
 import { useState, createContext, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NextUIProvider } from "@nextui-org/react";
 import "./index.css";
 import Erreur from "./Erreur.tsx";
-import Inscription from "./avant-connection/Inscription.tsx";
-import OuvrirSession from "./avant-connection/OuvrirSession.tsx";
-import Accueil from "./View/Accueil.tsx";
-import Profile from "./View/Profile.tsx";
-import Parametres from "./View/Parametres.tsx";
-import Exploration from "./View/Exploration.tsx";
-import AjoutPhoto from "./View/AjoutPhoto.tsx";
+import Inscription from "../avant-connection/Inscription.tsx";
+import OuvrirSession from "../avant-connection/OuvrirSession.tsx";
+import Accueil from "./pages/Accueil.tsx";
+import Profile from "./Profile.tsx";
+import Parametres from "./Parametres.tsx";
+import Exploration from "./Exploration.tsx";
+import AjoutPubli from "./AjoutPubli.tsx";
 import Cookies from 'js-cookie';
 
 export const ContextUtil = createContext<any>(undefined);
@@ -76,43 +76,22 @@ export default function Main() {
     {
       path: "/parametres",
       element: <Parametres />,
-      // loader: async () =>{
-      //   utilVerifier = verifierUtil();
-      //   if(!utilVerifier){
-      //     return redirect("/");
-      //   }
-      // }
+      
     },
     {
       path: "/exploration",
       element: <Exploration />,
-      // loader: async () =>{
-      //   utilVerifier = verifierUtil();
-      //   if(!utilVerifier){
-      //     return redirect("/");
-      //   }
-      //   return null;
-      // }
+      
     },
     {
       path: "/ajoutPhoto",
-      element: <AjoutPhoto />,
-      // loader: async () =>{
-      //   utilVerifier = verifierUtil();
-      //   if(!utilVerifier){
-      //     return redirect("/");
-      //   }
-      //   return null;
-      // }
+      element: <AjoutPubli />,
+     
     },
     {
       path: "/accueil",
       element: <Accueil />,
-      // loader: async () =>{
-      //   if(!utilLogger){
-      //     return redirect("/");
-      //   }
-      // }
+     
     }
   ]);
 

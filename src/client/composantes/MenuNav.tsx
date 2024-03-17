@@ -1,5 +1,5 @@
-import "../../style.css";
-import "../../index.css";
+import "../style.css";
+import "../index.css";
 import { Link } from "react-router-dom";
 import maison_menu from "../../assets/maison_menu.svg";
 import loupe_menu from "../../assets/loupe_menu.svg";

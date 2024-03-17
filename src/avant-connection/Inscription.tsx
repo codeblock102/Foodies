@@ -1,5 +1,5 @@
 import { Input, Button, ButtonGroup } from "@nextui-org/react";
-import "../global.css";
+import "../client/global.css";
 import "./OuvrirSession.scss";
 import { Link, Form } from "react-router-dom";
 import img from "../assets/connectionImg-mobile.jpeg";

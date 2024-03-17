@@ -3,8 +3,8 @@ import MenuNav from "./composantes/MenuNav";
 import Publimini from "./composantes/Publimini";
 import { useEffect, useState } from "react";
 
-import "../style.css";
-import "../index.css";
+import "./style.css";
+import "./index.css";
 export default function Profile() {
 
   // Define the type of 'util' object

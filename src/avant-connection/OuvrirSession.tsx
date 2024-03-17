@@ -1,11 +1,11 @@
-import "../global.css";
+import "../client/global.css";
 import "./OuvrirSession.scss";
 import { Input } from "@nextui-org/react";
 import { Link, Form, useNavigate,Navigate } from "react-router-dom";
 import img from "../assets/connectionImg-mobile.jpeg";
-import "../fonts.scss";
+import "../client/fonts.scss";
 import { useState, useEffect,useContext } from "react";
-import {ContextUtil} from '../main';
+import {ContextUtil} from '../client/main';
 import Cookies from 'js-cookie';
 
 
