@@ -17,7 +17,6 @@ const routesCommentaires = require('./routes/commentaires');
 
  //app.use("api/utilisateurs", routesUtil);
 // app.use("api/likes", routesLikes);
-// app.use("api/commentaires", routesCommentaires);
 
 // Middlewares
 app.use((req,res,next)=>{
@@ -64,6 +63,7 @@ app.use(express.json());
 
  app.use("/api/auth", routesAuth);
  app.use("/api/publications", routesPubli);
+ app.use("/api/commentaires", routesCommentaires);
 
 
 // vérifier si 'lutilisateur 

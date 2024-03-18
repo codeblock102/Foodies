@@ -11,7 +11,7 @@ export default function AjoutPubli() {
     titre: "",
     description: "",
   });
-
+  const naviguer = useNavigate();
   const telechargerFichier = async () => {
     try {
       const formData = new FormData();
@@ -50,6 +50,7 @@ export default function AjoutPubli() {
         }
       );
       const reponseJson = await reponse.json();
+      console.log(reponseJson);
       return reponseJson;
     },
     onSuccess: () => {
@@ -80,11 +81,12 @@ export default function AjoutPubli() {
         description: formulaire.description,
         image_data: imgUrl,
       });
-
+      naviguer('/accueil');
       return reponseJson;
     } catch (error) {
       console.error("Erreur de soumission de formulaire:", error);
     }
+    
   }
  
   function gererChangements(e: any) {
@@ -111,7 +113,7 @@ export default function AjoutPubli() {
             htmlFor="imageUtil"
             className="w-full h-full flex flex-col	items-center justify-center"
           >
-           { fichierSoumis?<img className="object-cover" src={URL.createObjectURL(fichierSoumis)}/>:<div><img src={televerserImg} alt="" className="max-h-16 w-16 mx-auto" />
+           { fichierSoumis?<img className="object-cover max-h-full" src={URL.createObjectURL(fichierSoumis)}/>:<div><img src={televerserImg} alt="" className="max-h-16 w-16 mx-auto" />
             <h4 className="h-fit text-center mt-4">
               Appuyez sur la flèche pour mettre l’image que vous voulez
             </h4> </div>}

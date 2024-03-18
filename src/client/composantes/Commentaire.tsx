@@ -1,7 +1,7 @@
 import "../style.css";
 import "../index.css";
 
-export default function Commentaire() {
+export default function Commentaire(commentaire:any) {
   return (
     <div className="Commentaire w-full bg-red-400 min-h-20">
       <div className="info-util">
@@ -9,7 +9,7 @@ export default function Commentaire() {
         <p>nom-Util</p>
       </div>
       <p className="description-commentaire">
-        Cool! J'ai hate de cuisiner sa avec ma famille!
+        {commentaire.description}
       </p>
     </div>
   );

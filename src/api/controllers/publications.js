@@ -16,9 +16,9 @@ const chercherPubli = async (req, res) => {
          const idUtilCookie = jwt.verify(token,"secretkey");
        
         // // requête pour chercher les publications de l'utilisateur
-         const requete = "SELECT publication.*,utilisateur.id,nom_util,imgprofile FROM publication JOIN utilisateur ON (utilisateur.id = publication.util_id) JOIN relations ON (publication.util_id = relations.followed_id OR relations.follower_id = $1) ORDER BY datepubli DESC";
+         const requete = "SELECT publication.*,utilisateur.id AS utilisateur_id,nom_util,imgprofile FROM publication JOIN utilisateur ON (utilisateur.id = publication.util_id) JOIN relations ON (publication.util_id = relations.followed_id OR relations.follower_id = $1) ORDER BY datepubli DESC";
          const reponse = await client.query(requete,[idUtilCookie.id]);
-         console.log(reponse.rows.length);
+         console.log(reponse.rows[0]);
         if(reponse.rows.length){
             return res.status(200).json(reponse.rows);
         }else {
