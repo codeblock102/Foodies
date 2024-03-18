@@ -2,6 +2,16 @@ import { useQuery } from '@tanstack/react-query'
 import Publication from "./composantes/Publication";
 import './style.css';
 import './index.css';
+interface PublicationProps {
+    id: number,
+    titre: string,
+    descriptions: string,
+    image_data: string,
+    util_id: number,
+    date_publi: Date,
+    nom_util:string,
+    img_profile: Buffer,
+  }
 export default function Publications() {
 
      const chercherData = async (route:string) => { 
@@ -10,6 +20,7 @@ export default function Publications() {
             credentials: 'include'
         });
         const reponseJson = await reponse.json();
+        console.log(reponseJson);
         return reponseJson;
     }
     
@@ -21,9 +32,9 @@ export default function Publications() {
 
     return (
         <div className=" Publications w-full flex flex-col justify-center items-center	">
-            {error ? "OUPS Il y a une erreur..." : isPending ? "Attendez..." : data.map((publi: object, index: number) => (
-                <Publication key={index} />
+            {error ? "OUPS Il y a une erreur..." : isPending ? "Attendez..." : data.map((publi: PublicationProps, index: number) => (
+                <Publication key={index} {...publi}/>
             ))}
-        </div>
+        </div> 
     )
 }

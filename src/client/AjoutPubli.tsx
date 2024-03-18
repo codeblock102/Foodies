@@ -26,8 +26,9 @@ export default function AjoutPubli() {
         });
      
       // const reponseJson = await reponse.json();
-      // console.log(reponseJson);
-      return reponse.text();  
+       console.log(reponseJson);
+      return reponse.text(); 
+
     } catch (erreur) {
       console.log(erreur);
     }
@@ -85,20 +86,14 @@ export default function AjoutPubli() {
       console.error("Erreur de soumission de formulaire:", error);
     }
   }
-  // const formData = new FormData();
-  //   formData.append('file', fichier);
-  //   formData.append('form', formulaire);
-
+ 
   function gererChangements(e: any) {
     setFormulaire({
       ...formulaire,
       [e.target.name]: e.target.value,
     });
   }
-// useEffect(() => {
-//   console.log(fichierSoumis);
 
-// }, [fichierSoumis])
 
   function gererFichier(e: any) {
     const fichier = e.target.files[0];
