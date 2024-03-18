@@ -111,10 +111,10 @@ export default function AjoutPubli() {
             htmlFor="imageUtil"
             className="w-full h-full flex flex-col	items-center justify-center"
           >
-            <img src={televerserImg} alt="" className="max-h-16 w-16 mx-auto" />
+           { fichierSoumis?<img className="object-cover" src={URL.createObjectURL(fichierSoumis)}/>:<div><img src={televerserImg} alt="" className="max-h-16 w-16 mx-auto" />
             <h4 className="h-fit text-center mt-4">
               Appuyez sur la flèche pour mettre l’image que vous voulez
-            </h4>
+            </h4> </div>}
             <input
               type="file"
               name="image_data"
