@@ -16,7 +16,7 @@ const routesLikes = require('./routes/likes');
 const routesCommentaires = require('./routes/commentaires');
 
  //app.use("api/utilisateurs", routesUtil);
-// app.use("api/likes", routesLikes);
+
 
 // Middlewares
 app.use((req,res,next)=>{
@@ -64,7 +64,7 @@ app.use(express.json());
  app.use("/api/auth", routesAuth);
  app.use("/api/publications", routesPubli);
  app.use("/api/commentaires", routesCommentaires);
-
+ app.use("/api/likes", routesLikes);
 
 // vérifier si 'lutilisateur 
 app.listen(port, () => {
